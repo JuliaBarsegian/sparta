@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Acceptance suite">
+    <listeners>
+        <listener class-name="core.common.AnnotationTransformer"/>
+    </listeners>
+    <test verbose="1" name="Sparta tests">
+        <classes>
+            <class name="SpartaTests.tasks.Calculator"/>
+        </classes>
+    </test>
+</suite>
