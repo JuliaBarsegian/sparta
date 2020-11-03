@@ -10,8 +10,7 @@ import java.util.Random;
 public class FrameworkCore {
     private static WebDriver webDriver;
     private static String browser = IOutils.loadGenericProperties("browser", "configuration");
-//    public static String lamodaUrl = IOutils.loadGenericProperties("lamodaUrl", "configuration");
-//    public static String lamodaAccsUrl = IOutils.loadGenericProperties("lamodaAccsUrl", "configuration");
+
     public Random obj = new Random();
 
     public static WebDriver getInstance(){
