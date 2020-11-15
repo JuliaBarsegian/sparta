@@ -1,5 +1,6 @@
 package SpartaTests.tasks;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class By {
+public class LocatorTypesTest {
     private WebDriver driver;
     private static final String TUT_BY_URL = "https://www.tut.by/";
 
@@ -30,14 +31,14 @@ public class By {
 
     @Test
     public void checkAllTypesOfLocators(){
-        WebElement id = driver.findElement(org.openqa.selenium.By.id("authorize"));
-        WebElement name = driver.findElement(org.openqa.selenium.By.name("search"));
-        WebElement className =  driver.findElement(org.openqa.selenium.By.className("enter"));
-        WebElement tagName = driver.findElement(org.openqa.selenium.By.tagName("li"));
-        WebElement linkText = driver.findElement(org.openqa.selenium.By.linkText("ТV-программа"));
-        WebElement partLinkText = driver.findElement(org.openqa.selenium.By.partialLinkText("Каталог"));  //Полное название - Каталог цен
-        WebElement css = driver.findElement(org.openqa.selenium.By.cssSelector("[class=header-logo]"));
-        WebElement xpath = driver.findElement(org.openqa.selenium.By.xpath("//a[@class = 'enter']"));
+        WebElement id = driver.findElement(By.id("authorize"));
+        WebElement name = driver.findElement(By.name("search"));
+        WebElement className =  driver.findElement(By.className("enter"));
+        WebElement tagName = driver.findElement(By.tagName("li"));
+        WebElement linkText = driver.findElement(By.linkText("ТV-программа"));
+        WebElement partLinkText = driver.findElement(By.partialLinkText("Каталог"));  //Полное название - Каталог цен
+        WebElement css = driver.findElement(By.cssSelector("[class=header-logo]"));
+        WebElement xpath = driver.findElement(By.xpath("//a[@class = 'enter']"));
 
         Assert.assertTrue(id.isDisplayed());
         Assert.assertTrue(name.isDisplayed());

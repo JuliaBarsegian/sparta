@@ -24,6 +24,7 @@ public class TutByLoginTest {
     private static final String TUT_BY_URL = "https://www.tut.by/";
     private static final String USERNAME = "seleniumtests@tut.by";
     private static final String PASSWORD = "123456789zxcvbn";
+
     private WebDriver driver;
 
     @BeforeMethod
