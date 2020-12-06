@@ -5,7 +5,7 @@
     </listeners>
     <test verbose="1" name="Sparta tests">
         <classes>
-            <class name="SpartaTests.tasks.Calculator"/>
+            <class name="SpartaTests.tests.TutByLoginTest"/>
         </classes>
     </test>
 </suite>

@@ -1,14 +1,19 @@
 package SpartaTests.pages;
 
 import core.FrameworkCore;
+import core.utils.PauseLenght;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class AbstractPage extends FrameworkCore {
     private static WebDriver driver = getInstance();
@@ -21,26 +26,31 @@ public class AbstractPage extends FrameworkCore {
 
     public void openUrl(String url) {
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(url);
     }
 
-//    public static void waitForElementVisible(By by) {
-//        try {
-//            WebDriverWait waiter = new WebDriverWait(driver, PauseLenght.AJAX.value());
-//            waiter.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
-//        } catch (Throwable e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
-//
-//    public static void waitForElementClickable(By by) {
-//        try {
-//            WebDriverWait waiter = new WebDriverWait(driver, PauseLenght.AJAX.value());
-//            waiter.until(ExpectedConditions.elementToBeClickable(by));
-//        } catch (Throwable e) {
-//            System.out.println(e.getMessage());
-//        }
-//    }
+    public void closeBrowser(){
+        driver.quit();
+    }
+
+    public static void waitForElementVisible(By by) {
+        try {
+            WebDriverWait waiter = new WebDriverWait(driver, PauseLenght.AJAX.value());
+            waiter.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void waitForElementClickable(By by) {
+        try {
+            WebDriverWait waiter = new WebDriverWait(driver, PauseLenght.AJAX.value());
+            waiter.until(ExpectedConditions.elementToBeClickable(by));
+        } catch (Throwable e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     public static By getElementBy(String element) {
         return By.xpath(element);
