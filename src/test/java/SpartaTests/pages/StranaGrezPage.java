@@ -19,6 +19,7 @@ public class StranaGrezPage {
     private WebElement movieName;
 
     public String getMovieNameText(){
+
         return movieName.getText();
     }
 

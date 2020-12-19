@@ -4,6 +4,7 @@ import SpartaTests.pages.*;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -34,14 +35,10 @@ public class TutByLoginTest {
 
     @BeforeMethod
     public void setup() throws IOException {
-//        DesiredCapabilities capability = DesiredCapabilities.firefox();   //Task5
-//        WebDriver driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-//        capability.setBrowserName("Firefox");
-//        capability.setPlatform(Platform.WINDOWS);
-//        capability.setVersion("80");
-//        capability.setCapability("Firefox",Platform.WINDOWS);
+        ChromeOptions options = new ChromeOptions(); //Task5
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
 
-        driver = new ChromeDriver();
+//        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get("https://www.tut.by/");
@@ -105,14 +102,14 @@ public class TutByLoginTest {
 
     @AfterMethod
     public void tearDown(){
-        Date date = new Date();
-        String fileName = date.toString().replace(":", "_").replace(" ", "_") + ".png";
-        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.moveFile(screenshot, new File("./target/screenshots/" + fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        Date date = new Date();
+//        String fileName = date.toString().replace(":", "_").replace(" ", "_") + ".png";
+//        File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+//        try {
+//            FileUtils.moveFile(screenshot, new File("./target/screenshots/" + fileName));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
        driver.quit();
         }
     }
